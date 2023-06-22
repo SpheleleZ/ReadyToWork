@@ -70,6 +70,7 @@ public class LoginPage {
      * @return sign in text from sign in page
      */
     public String verifyLoginPage(){
+        waitHelper.WaitForElement(signInPage,20);
         return signInPage.getText();
     }
 }
