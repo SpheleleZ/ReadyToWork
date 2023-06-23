@@ -5,7 +5,6 @@
 
 trigger:
 - master
-- Sphelele_Branch
 
 pool:
   vmImage: ubuntu-latest
