@@ -1,4 +1,4 @@
-Feature: Ready to Work Home page feature
+Feature: Ready to Work:Home page feature
 
   @SmokeTest
   Scenario: ReadyToWork home page launching
