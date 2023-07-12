@@ -11,7 +11,7 @@ public class LoginPage {
 
     private final WebDriver driver;
 
-    private WaitHelper waitHelper;
+    private final WaitHelper waitHelper;
 
     @FindBy(id = "formBasicEmail")
     @CacheLookup
@@ -28,6 +28,14 @@ public class LoginPage {
     @FindBy(xpath = "//h3[text()=\"Sign In\"]")
     @CacheLookup
     WebElement signInPage;
+
+    @FindBy(xpath = "//div[text()=\"No active account found with the given credentials\"]")
+    @CacheLookup
+    WebElement loginAlert;
+
+    @FindBy(xpath = "//span[text()=\"Forgot?\"]")
+    @CacheLookup
+    WebElement forgotPasswordButton;
 
 
     public LoginPage(WebDriver driver) {
@@ -72,5 +80,19 @@ public class LoginPage {
     public String verifyLoginPage(){
         waitHelper.WaitForElement(signInPage,20);
         return signInPage.getText();
+    }
+
+    /**
+     * @return true if login alert displayed saying no active account found with the given credentials
+     */
+    public boolean isLoginAlertDisplayed(){
+        waitHelper.WaitForElement(loginAlert,20);
+        return loginAlert.isDisplayed();
+    }
+
+    public ForgotPasswordPage clickOnForgotPassword(){
+        waitHelper.WaitForElement(forgotPasswordButton,20);
+        forgotPasswordButton.click();
+        return new ForgotPasswordPage(driver);
     }
 }
