@@ -1,19 +1,23 @@
 package acceptancetests.base;
 
-import acceptancetests.pages.ForgotPasswordPage;
-import acceptancetests.pages.LoginPage;
-import acceptancetests.pages.MyLearningPage;
-import acceptancetests.pages.ReadyToWorkPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BaseTest {
     protected WebDriver driver;
-    protected ReadyToWorkPage readyToWorkPage;
-    protected LoginPage loginPage;
-    protected MyLearningPage myLearningPage;
-    protected ForgotPasswordPage forgotPasswordPage;
 
-    public String getPageTitle(){
-       return driver.getPageSource();
+    public void setUpMethod(){
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+
+    public void openPage(String url){
+        driver.get(url);
+    }
+
+    public void tearDownMethod(){
+        driver.quit();
     }
 }

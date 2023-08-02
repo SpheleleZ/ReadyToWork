@@ -1,12 +1,14 @@
 Feature: Ready To Work:Login Feature
 
-  @SmokeTest
-  Scenario Outline: Test ReadyToWork login with invalid credentials
-    #Login scenario with invalid credentials
+  Background:
     Given browser is launched
-    And ready to work home page is open
-    And  user click on sign in link
+    And ready to work "https://readytowork.absa.africa/login" page is open
     Then verify login page is open
+
+
+  @SmokeTest
+  Scenario Outline: Test ReadyToWork: login with invalid credentials
+    #Login scenario with invalid credentials
     When user enters <email> and <password>
     And user click on sign in button
     Then message display no active account with the given credentials
@@ -17,12 +19,8 @@ Feature: Ready To Work:Login Feature
       | sphelelez101@gmail.com | Nok2lasphe123 |
 
   @SmokeTest
-  Scenario Outline: Test ReadyToWork login with valid credentials
+  Scenario Outline: Test ReadyToWork: login with valid credentials
     #Login scenario with valid credentials
-    Given browser is launched
-    And ready to work home page is open
-    And  user click on sign in link
-    Then verify login page is open
     When user enters <email> and <password>
     And user click on sign in button
     Then user logged in successfully
@@ -34,12 +32,8 @@ Feature: Ready To Work:Login Feature
       | sphelelez101@gmail.com | Nok2lasphe |
 
   @SmokeTest
-  Scenario: Forgot Password with valid email or account
+  Scenario: Test Ready To Work: Forgot Password with valid email or account
   #Forgot Password with valid email or account
-    Given browser is launched
-    And ready to work home page is open
-    And  user click on sign in link
-    Then verify login page is open
     And user click on forgot password button
     And verify forgot password is open
     When user enters email "sphelelez101@gmail.com"
@@ -51,10 +45,6 @@ Feature: Ready To Work:Login Feature
   @SmokeTest
   Scenario: Forgot Password with invalid email or account
   #Forgot Password with invalid email or account
-    Given browser is launched
-    And ready to work home page is open
-    And  user click on sign in link
-    Then verify login page is open
     And user click on forgot password button
     And verify forgot password is open
     When user enters email "sphelelez103331@gmail.co"

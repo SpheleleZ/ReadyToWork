@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="28.16" tests="5" skipped="0" failures="0" errors="0">
+<testcase classname="Ready to Work:Home page feature" name="ReadyToWork home page launching" time="5.594">
+<system-out><![CDATA[
+Given browser is launched...................................................passed
+And ready to work "https://readytowork.absa.africa/" page is open...........passed
+Then Ready to Work e-learning platform is displayed.........................passed
+And close the browser.......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Ready To Work:Login Feature" name="Test ReadyToWork: login with invalid credentials - Example #1.1" time="5.369">
+<system-out><![CDATA[
+Given browser is launched...................................................passed
+And ready to work "https://readytowork.absa.africa/login" page is open......passed
+Then verify login page is open..............................................passed
+When user enters sphelelez101@gmail.com and Nok2lasphe123...................passed
+And user click on sign in button............................................passed
+Then message display no active account with the given credentials...........passed
+And close the browser.......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Ready To Work:Login Feature" name="Test ReadyToWork: login with valid credentials - Example #1.1" time="5.213">
+<system-out><![CDATA[
+Given browser is launched...................................................passed
+And ready to work "https://readytowork.absa.africa/login" page is open......passed
+Then verify login page is open..............................................passed
+When user enters sphelelez101@gmail.com and Nok2lasphe......................passed
+And user click on sign in button............................................passed
+Then user logged in successfully............................................passed
+And verify My learning page is open.........................................passed
+And user click on logout button.............................................passed
+And close the browser.......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Ready To Work:Login Feature" name="Test Ready To Work: Forgot Password with valid email or account" time="6.613">
+<system-out><![CDATA[
+Given browser is launched...................................................passed
+And ready to work "https://readytowork.absa.africa/login" page is open......passed
+Then verify login page is open..............................................passed
+And user click on forgot password button....................................passed
+And verify forgot password is open..........................................passed
+When user enters email "sphelelez101@gmail.com".............................passed
+And user click on reset Password button.....................................passed
+Then Alert display email sent please check your inbox.......................passed
+And click on okay button....................................................passed
+And close the browser.......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Ready To Work:Login Feature" name="Forgot Password with invalid email or account" time="4.97">
+<system-out><![CDATA[
+Given browser is launched...................................................passed
+And ready to work "https://readytowork.absa.africa/login" page is open......passed
+Then verify login page is open..............................................passed
+And user click on forgot password button....................................passed
+And verify forgot password is open..........................................passed
+When user enters email "sphelelez103331@gmail.co"...........................passed
+And user click on reset Password button.....................................passed
+Then Alert display there is no associated with email address................passed
+And click on close button...................................................passed
+And close the browser.......................................................passed
+]]></system-out>
+</testcase>
+</testsuite>
