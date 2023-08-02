@@ -31,7 +31,7 @@ Feature: Ready To Work:Login Feature
       | email                  | password   |
       | sphelelez101@gmail.com | Nok2lasphe |
 
-  @SmokeTest
+
   Scenario: Test Ready To Work: Forgot Password with valid email or account
   #Forgot Password with valid email or account
     And user click on forgot password button

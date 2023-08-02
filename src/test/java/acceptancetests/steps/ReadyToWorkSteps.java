@@ -1,10 +1,7 @@
 package acceptancetests.steps;
 
 import acceptancetests.base.BaseTest;
-import acceptancetests.pages.ForgotPasswordPage;
-import acceptancetests.pages.LoginPage;
-import acceptancetests.pages.MyLearningPage;
-import acceptancetests.pages.ReadyToWorkPage;
+import acceptancetests.pages.*;
 import io.cucumber.java.en.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,6 +12,7 @@ public class ReadyToWorkSteps extends BaseTest {
     LoginPage loginPage;
     MyLearningPage myLearningPage;
     ForgotPasswordPage forgotPasswordPage;
+    EditProfilePage editProfilePage;
 
     /*
      * Steps definition for Ready to work:Home page ReadyToWork.Feature
@@ -22,18 +20,19 @@ public class ReadyToWorkSteps extends BaseTest {
 
     @Given("^browser is launched$")
     public void browser_is_launched() {
-       setUpMethod();
+        setUpMethod();
     }
 
     @And("ready to work {string} page is open")
     public void ready_to_work_page_is_open(String url) {
-       openPage(url);
+        openPage(url);
     }
 
     @Then("^Ready to Work e-learning platform is displayed$")
     public void Ready_To_Work_e_learning_platform_is_displayed() {
         readyToWorkPage = new ReadyToWorkPage(driver);
-        assertTrue(readyToWorkPage.isReadyToWorkELearningDisplayed(), "ReadyToWork e-learning platform is not displayed");
+        assertTrue(readyToWorkPage.isReadyToWorkELearningDisplayed(),
+                "ReadyToWork e-learning platform is not displayed");
     }
 
     @And("^close the browser$")
@@ -48,7 +47,8 @@ public class ReadyToWorkSteps extends BaseTest {
     @Then("^verify login page is open$")
     public void verify_login_page_is_open() {
         loginPage = new LoginPage(driver);
-        assertEquals(loginPage.verifyLoginPage(), "Sign In", "Login page is not open");
+        assertEquals(loginPage.verifyLoginPage(), "Sign In",
+                "Login page is not open");
     }
 
     @When("^user enters (.*) and (.*)$")
@@ -65,12 +65,14 @@ public class ReadyToWorkSteps extends BaseTest {
 
     @Then("^user logged in successfully$")
     public void user_logged_in_successfully() {
-        assertTrue(myLearningPage.isWelcomeBackDisplayed(), "User login unsuccessful");
+        assertTrue(myLearningPage.isWelcomeBackDisplayed(),
+                "User login unsuccessful");
     }
 
     @And("^verify My learning page is open$")
     public void verify_my_learning_page_is_open() {
-        assertTrue(myLearningPage.isMyLearningDisplayed(), "My learning page is not open");
+        assertTrue(myLearningPage.isMyLearningDisplayed(),
+                "My learning page is not open");
     }
 
     @And("^user click on logout button$")
@@ -85,7 +87,8 @@ public class ReadyToWorkSteps extends BaseTest {
 
     @Then("^message display no active account with the given credentials$")
     public void message_display_no_active_account_with_the_given_credentials() {
-        assertTrue(loginPage.isLoginAlertDisplayed(), "login alert did not display");
+        assertTrue(loginPage.isLoginAlertDisplayed(),
+                "login alert did not display");
     }
 
     /*
@@ -100,7 +103,8 @@ public class ReadyToWorkSteps extends BaseTest {
 
     @And("verify forgot password is open")
     public void verify_forgot_password_is_open() {
-        assertTrue(forgotPasswordPage.isForgotPasswordPageOpen(), "Forgot password page is no open");
+        assertTrue(forgotPasswordPage.isForgotPasswordPageOpen(),
+                "Forgot password page is no open");
     }
 
     @When("user enters email {string}")
@@ -115,10 +119,11 @@ public class ReadyToWorkSteps extends BaseTest {
 
     @Then("^Alert display email sent please check your inbox$")
     public void alert_display_email_sent_please_check_your_inbox() {
-        assertTrue(forgotPasswordPage.isRestLinkDisplayed(), "Alert did not display");
+        assertTrue(forgotPasswordPage.isRestLinkDisplayed(),
+                "Alert did not display");
     }
 
-    @And("click on okay button")
+    @And("^click on okay button$")
     public void click_on_okay_button() {
         forgotPasswordPage.setClickOnOkayButton();
     }
@@ -127,13 +132,56 @@ public class ReadyToWorkSteps extends BaseTest {
      * Step definition for Ready to Work:Forgot Password with inValid email or account
      */
 
-    @Then("Alert display there is no associated with email address")
+    @Then("^Alert display there is no associated with email address$")
     public void alert_display_there_is_no_associated_with_email_address() {
-      assertTrue(forgotPasswordPage.isAlertForWrongEmailDisplayed(),"alert for wrong email or account did not display");
+        assertTrue(forgotPasswordPage.isAlertForWrongEmailDisplayed(),
+                "alert for wrong email or account did not display");
     }
 
-    @Then("click on close button")
+    @Then("^click on close button$")
     public void click_on_close_button() {
-       forgotPasswordPage.setCloseButton();
+        forgotPasswordPage.setCloseButton();
+    }
+
+    /*
+     * Step definition for Ready To Work : Manage Profile feature
+     */
+
+    @Then("^user click on manage profile button$")
+    public void user_click_on_manage_profile_button() {
+        editProfilePage = new EditProfilePage(driver);
+        editProfilePage = myLearningPage.setManageProfileButton();
+    }
+
+    @Then("^verify Manage Profile page is open$")
+    public void verify_manage_profile_page_is_open() {
+        assertTrue(editProfilePage.setManageProfilePage(),
+                "Manage Profile Page is not open");
+    }
+
+    @When("^enters Personal Details (.*) and (.*) follow by (.*) also (.*)$")
+    public void enters_Personal_Details_and_follow_by_also(String firstName, String lastName, String contactNumber, String category) {
+        editProfilePage.setFirstNameInputField(firstName);
+        editProfilePage.setLastNameInputField(lastName);
+        editProfilePage.setContactNumber(contactNumber);
+        editProfilePage.setCategory(category);
+    }
+
+    @And("^user enter Address Details (.*) after (.*) last (.*)$")
+    public void user_enter_Address_Details_after_last(String city, String province, String country) {
+        editProfilePage.setCity(city);
+        editProfilePage.setProvince(province);
+        editProfilePage.setCountry(country);
+    }
+
+    @And("^user click on Submit form$")
+    public void user_click_on_submit_form() {
+        editProfilePage.setSubmitButton();
+    }
+
+    @Then("^verify if profile details successfully updated$")
+    public void verify_if_profile_details_successfully_updated() {
+        assertTrue(editProfilePage.setSuccessfulAlert().contains("Profile details succefully updated"),
+                "profile details unsuccessfully updated");
     }
 }
