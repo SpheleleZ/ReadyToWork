@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MyLearningPage {
 
-    private final WebDriver driver;
+    private WebDriver driver;
     private final WaitHelper waitHelper;
 
     @FindBy(xpath = "//div[text()=\"My Learning\"]")
@@ -23,35 +23,45 @@ public class MyLearningPage {
 
     @FindBy(xpath = "//span[text()=\" Logout\"]")
     @CacheLookup
-    WebElement signoutButton;
+    WebElement signOutButton;
+
+    @FindBy(xpath = "//button[text()=\"Manage Profile\"]")
+    @CacheLookup
+    WebElement manageProfileButton;
 
 
     public MyLearningPage(WebDriver driver) {
         this.driver = driver;
         waitHelper = new WaitHelper(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     /**
      * @return true if welcome back is displayed
      */
     public boolean isWelcomeBackDisplayed() {
-        waitHelper.WaitForElement(welcomeBack,20);
+        waitHelper.WaitForElement(welcomeBack, 20);
         return welcomeBack.isDisplayed();
     }
 
     /**
      * @return true if My Learning option is displayed
      */
-    public boolean isMyLearningDisplayed(){
+    public boolean isMyLearningDisplayed() {
         return myLearning.isDisplayed();
     }
 
     /**
      * clicking logout button from My learning page
      */
-    public void clickOnSignOutButton(){
-        waitHelper.WaitForElement(signoutButton,20);
-        signoutButton.click();
+    public void clickOnSignOutButton() {
+        waitHelper.WaitForElement(signOutButton, 20);
+        signOutButton.click();
+    }
+
+    public EditProfilePage setManageProfileButton() {
+        waitHelper.WaitForElement(manageProfileButton, 20);
+        manageProfileButton.click();
+        return new EditProfilePage(driver);
     }
 }
