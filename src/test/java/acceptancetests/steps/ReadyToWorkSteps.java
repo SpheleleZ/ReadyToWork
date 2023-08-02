@@ -6,12 +6,15 @@ import acceptancetests.pages.LoginPage;
 import acceptancetests.pages.MyLearningPage;
 import acceptancetests.pages.ReadyToWorkPage;
 import io.cucumber.java.en.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ReadyToWorkSteps extends BaseTest {
+
+    ReadyToWorkPage readyToWorkPage;
+    LoginPage loginPage;
+    MyLearningPage myLearningPage;
+    ForgotPasswordPage forgotPasswordPage;
 
     /*
      * Steps definition for Ready to work:Home page ReadyToWork.Feature
@@ -19,40 +22,32 @@ public class ReadyToWorkSteps extends BaseTest {
 
     @Given("^browser is launched$")
     public void browser_is_launched() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+       setUpMethod();
     }
 
-    @And("^ready to work home page is open$")
-    public void ready_to_work_home_page_is_open() {
-        String url = "https://readytowork.absa.africa/";
-        driver.get(url);
+    @And("ready to work {string} page is open")
+    public void ready_to_work_page_is_open(String url) {
+       openPage(url);
     }
 
-    @Then("^ReadytoWork e-learning platform is displayed$")
-    public void readyto_work_e_learning_platform_is_displayed() {
+    @Then("^Ready to Work e-learning platform is displayed$")
+    public void Ready_To_Work_e_learning_platform_is_displayed() {
         readyToWorkPage = new ReadyToWorkPage(driver);
         assertTrue(readyToWorkPage.isReadyToWorkELearningDisplayed(), "ReadyToWork e-learning platform is not displayed");
     }
 
     @And("^close the browser$")
     public void close_the_browser() {
-        driver.quit();
+        tearDownMethod();
     }
 
     /*
      * Steps definition for Ready to work:Login with valid credentials
      */
-    @And("^user click on sign in link$")
-    public void user_click_on_sign_in_link() {
-        readyToWorkPage = new ReadyToWorkPage(driver);
-        loginPage = new LoginPage(driver);
-        loginPage = readyToWorkPage.clickOnSignInLinkHomePage();
-    }
 
     @Then("^verify login page is open$")
     public void verify_login_page_is_open() {
+        loginPage = new LoginPage(driver);
         assertEquals(loginPage.verifyLoginPage(), "Sign In", "Login page is not open");
     }
 
@@ -87,6 +82,7 @@ public class ReadyToWorkSteps extends BaseTest {
     /*
      * Step definition for Ready to work: Login with invalid credentials
      */
+
     @Then("^message display no active account with the given credentials$")
     public void message_display_no_active_account_with_the_given_credentials() {
         assertTrue(loginPage.isLoginAlertDisplayed(), "login alert did not display");
