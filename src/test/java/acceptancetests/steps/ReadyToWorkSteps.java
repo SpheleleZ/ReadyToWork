@@ -51,8 +51,9 @@ public class ReadyToWorkSteps extends BaseTest {
                 "Login page is not open");
     }
 
-    @When("^user enters (.*) and (.*)$")
-    public void user_enters_and(String email, String password) {
+
+    @When("user enters {string} and {string}")
+    public void userEntersAnd(String email, String password) {
         loginPage.setEmailInputField(email);
         loginPage.setPasswordInputField(password);
     }
@@ -183,5 +184,38 @@ public class ReadyToWorkSteps extends BaseTest {
     public void verify_if_profile_details_successfully_updated() {
         assertTrue(editProfilePage.setSuccessfulAlert().contains("Profile details succefully updated"),
                 "profile details unsuccessfully updated");
+    }
+
+    /*
+     * Step definition for Ready To Work Reset Password
+     */
+    @And("user click on manage account button")
+    public void userClickOnManageAccountButton() {
+        editProfilePage.setManageAccountButton();
+    }
+
+    @And("user click on reset button")
+    public void userClickOnResetButton() {
+        editProfilePage.setResetButton();
+    }
+
+    @When("enters current {string} new {string} and confirm {string} Password")
+    public void entersCurrentNewAndConfirmPassword(String currentPassword,
+                                                   String newPassword,
+                                                   String confirmPassword) {
+        editProfilePage.setCurrentPassword(currentPassword);
+        editProfilePage.setNewPassword(newPassword);
+        editProfilePage.setConfirmPassword(confirmPassword);
+    }
+
+    @And("chick on change password button")
+    public void chickOnChangePasswordButton() {
+        editProfilePage.setChangePasswordButton();
+    }
+
+    @Then("verify password is changed successfully")
+    public void verifyPasswordIsChangedSuccessfully() {
+        assertTrue(editProfilePage.passwordAlertUpdated().contains("Password successfully changed"),
+                "Password unsuccessful changed");
     }
 }

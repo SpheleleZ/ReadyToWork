@@ -52,6 +52,34 @@ public class EditProfilePage {
     @CacheLookup
     WebElement successfulAlert;
 
+    @FindBy(id = "left-tabs-example-tab-password")
+    @CacheLookup
+    WebElement manageAccountButton;
+
+    @FindBy(xpath = "//a[text()=\"Reset  \"]")
+    @CacheLookup
+    WebElement resetButton;
+
+    @FindBy(id = "currentPassword")
+    @CacheLookup
+    WebElement currentPassword;
+
+    @FindBy(id = "newPassword")
+    @CacheLookup
+    WebElement newPassword;
+
+    @FindBy(id = "confirmPassword")
+    @CacheLookup
+    WebElement confirmPassword;
+
+    @FindBy(xpath = "//button[text()=\" Change Password\"]")
+    @CacheLookup
+    WebElement changePasswordButton ;
+
+    @FindBy(xpath = "//div[text()=\"Password successfully changed\"]")
+    @CacheLookup
+    WebElement passwordAlertUpdated;
+
     public EditProfilePage(WebDriver driver) {
         this.driver = driver;
         waitHelper = new WaitHelper(driver);
@@ -113,5 +141,40 @@ public class EditProfilePage {
     public boolean setManageProfilePage(){
         waitHelper.WaitForElement(manageProfilePage,20);
        return manageProfilePage.isDisplayed();
+    }
+
+    public void setManageAccountButton(){
+        waitHelper.WaitForElement(manageAccountButton,20);
+        manageAccountButton.click();
+    }
+
+    public void setResetButton(){
+        waitHelper.WaitForElement(resetButton,20);
+        resetButton.click();
+    }
+
+    public void setCurrentPassword(String current){
+        waitHelper.WaitForElement(currentPassword,20);
+        currentPassword.sendKeys(current);
+    }
+
+    public void setNewPassword(String newPass){
+        waitHelper.WaitForElement(newPassword,20);
+        newPassword.sendKeys(newPass);
+    }
+
+    public void setConfirmPassword(String confirm){
+        waitHelper.WaitForElement(confirmPassword,20);
+        confirmPassword.sendKeys(confirm);
+    }
+
+    public void setChangePasswordButton(){
+        waitHelper.WaitForElement(changePasswordButton,20);
+        changePasswordButton.click();
+    }
+
+    public String passwordAlertUpdated(){
+        waitHelper.WaitForElement(passwordAlertUpdated,20);
+        return passwordAlertUpdated.getText();
     }
 }
