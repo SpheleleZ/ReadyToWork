@@ -1,0 +1,10 @@
+{
+  "firstName": "Kitso",
+  "lastName": "Mbhele",
+  "age": 40,
+  "job": "Security Officer",
+  "soccer_teams": [
+    "Kaizer Chiefs",
+    "Chelsea"
+  ]
+}
