@@ -32,7 +32,7 @@ public class PostRequestUsingExternalJsonFile {
         given()
                 .contentType(ContentType.JSON)
                 .body(data.toString())
-                .pathParam("myPath", "users")
+                .pathParam("myPath", "friends")
                 .when()
                 .post("{myPath}")
                 .then()
@@ -51,8 +51,8 @@ public class PostRequestUsingExternalJsonFile {
 
         baseURI = "http://localhost:3000/";
         given()
-                .pathParam("myPath", "users")
-                .pathParam("myPath1", "11")
+                .pathParam("myPath", "friends")
+                .pathParam("myPath1", "7")
                 .when()
                 .delete("{myPath}/{myPath1}")
                 .then()

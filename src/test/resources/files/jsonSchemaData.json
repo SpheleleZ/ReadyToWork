@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "default": [],
+  "title": "Root Schema",
+  "items": {
+    "type": "object",
+    "title": "A Schema",
+    "required": [
+      "id",
+      "firstName",
+      "lastName",
+      "age",
+      "job",
+      "soccer_teams"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer",
+        "title": "The id Schema",
+        "examples": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "firstName": {
+        "type": "string",
+        "title": "The firstName Schema",
+        "examples": [
+          "Sphelele",
+          "Ongeziwe",
+          "Paseka",
+          "Linda",
+          "Sandile",
+          "Spijo",
+          "Gora"
+        ]
+      },
+      "lastName": {
+        "type": "string",
+        "title": "The lastName Schema",
+        "examples": [
+          "Zwane",
+          "Dokolwane",
+          "Mofokeng",
+          "Mathebula",
+          "Tsele",
+          "Dladla"
+        ]
+      },
+      "age": {
+        "type": "integer",
+        "title": "The age Schema",
+        "examples": [
+          25,
+          24,
+          27,
+          10,
+          26,
+          55,
+          30
+        ]
+      },
+      "job": {
+        "type": "string",
+        "title": "The job Schema",
+        "examples": [
+          "QA Engineer",
+          "Developer",
+          "Consultant",
+          "Student",
+          "Uber Driver",
+          "Actor",
+          "admin"
+        ]
+      },
+      "soccer_teams": {
+        "type": "array",
+        "title": "The soccer_teams Schema",
+        "items": {
+          "type": "string",
+          "title": "A Schema",
+          "examples": [
+            "Man City",
+            "Chiefs",
+            "Spurs",
+            "Pirates",
+            "Chelsea",
+            "Man United",
+            "Liverpool",
+            "Arsenal"
+          ]
+        },
+        "examples": [
+          [
+            "Man City",
+            "Chiefs"
+          ],
+          [
+            "Spurs",
+            "Pirates"
+          ],
+          [
+            "Chelsea",
+            "Chiefs"
+          ],
+          [
+            "Man United",
+            "Chiefs"
+          ],
+          [
+            "Liverpool",
+            "Chiefs"
+          ],
+          [
+            "Arsenal",
+            "Chiefs"
+          ],
+          [
+            "Liverpool",
+            "Pirates"
+          ]
+        ]
+      }
+    },
+    "examples": [
+      {
+        "id": 0,
+        "firstName": "Sphelele",
+        "lastName": "Zwane",
+        "age": 25,
+        "job": "QA Engineer",
+        "soccer_teams": [
+          "Man City",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 1,
+        "firstName": "Ongeziwe",
+        "lastName": "Dokolwane",
+        "age": 24,
+        "job": "Developer",
+        "soccer_teams": [
+          "Spurs",
+          "Pirates"
+        ]
+      },
+      {
+        "id": 2,
+        "firstName": "Paseka",
+        "lastName": "Mofokeng",
+        "age": 27,
+        "job": "Consultant",
+        "soccer_teams": [
+          "Chelsea",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 3,
+        "firstName": "Linda",
+        "lastName": "Zwane",
+        "age": 10,
+        "job": "Student",
+        "soccer_teams": [
+          "Man United",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 4,
+        "firstName": "Sandile",
+        "lastName": "Mathebula",
+        "age": 26,
+        "job": "Uber Driver",
+        "soccer_teams": [
+          "Liverpool",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 5,
+        "firstName": "Spijo",
+        "lastName": "Tsele",
+        "age": 55,
+        "job": "Actor",
+        "soccer_teams": [
+          "Arsenal",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 6,
+        "firstName": "Gora",
+        "lastName": "Dladla",
+        "age": 30,
+        "job": "admin",
+        "soccer_teams": [
+          "Liverpool",
+          "Pirates"
+        ]
+      }
+    ]
+  },
+  "examples": [
+    [
+      {
+        "id": 0,
+        "firstName": "Sphelele",
+        "lastName": "Zwane",
+        "age": 25,
+        "job": "QA Engineer",
+        "soccer_teams": [
+          "Man City",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 1,
+        "firstName": "Ongeziwe",
+        "lastName": "Dokolwane",
+        "age": 24,
+        "job": "Developer",
+        "soccer_teams": [
+          "Spurs",
+          "Pirates"
+        ]
+      },
+      {
+        "id": 2,
+        "firstName": "Paseka",
+        "lastName": "Mofokeng",
+        "age": 27,
+        "job": "Consultant",
+        "soccer_teams": [
+          "Chelsea",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 3,
+        "firstName": "Linda",
+        "lastName": "Zwane",
+        "age": 10,
+        "job": "Student",
+        "soccer_teams": [
+          "Man United",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 4,
+        "firstName": "Sandile",
+        "lastName": "Mathebula",
+        "age": 26,
+        "job": "Uber Driver",
+        "soccer_teams": [
+          "Liverpool",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 5,
+        "firstName": "Spijo",
+        "lastName": "Tsele",
+        "age": 55,
+        "job": "Actor",
+        "soccer_teams": [
+          "Arsenal",
+          "Chiefs"
+        ]
+      },
+      {
+        "id": 6,
+        "firstName": "Gora",
+        "lastName": "Dladla",
+        "age": 30,
+        "job": "admin",
+        "soccer_teams": [
+          "Liverpool",
+          "Pirates"
+        ]
+      }
+    ]
+  ]
+}
