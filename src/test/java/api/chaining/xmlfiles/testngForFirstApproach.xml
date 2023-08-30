@@ -1,0 +1,22 @@
+<suite name="Suite">
+    <test name="Create User">
+        <classes>
+            <class name="api.chaining.firstapproach.CreateAUser"/>
+        </classes>
+    </test>
+    <test name="Get User">
+        <classes>
+            <class name="api.chaining.firstapproach.GetAUser"/>
+        </classes>
+    </test>
+    <test name="Update User">
+        <classes>
+            <class name="api.chaining.firstapproach.UpdateAUser"/>
+        </classes>
+    </test>
+    <test name="Delete User">
+        <classes>
+            <class name="api.chaining.firstapproach.DeleteAUser"/>
+        </classes>
+    </test>
+</suite>
