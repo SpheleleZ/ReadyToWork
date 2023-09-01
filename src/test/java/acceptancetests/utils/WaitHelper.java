@@ -14,6 +14,9 @@ public class WaitHelper {
         this.driver = driver;
     }
 
+    /*
+     * WaitForElement Methods help if browser have to wait for element to be visible
+     */
     public void WaitForElement(WebElement element, long timeOutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds));
         wait.until(ExpectedConditions.visibilityOf(element));
