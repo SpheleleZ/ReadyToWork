@@ -22,7 +22,7 @@ public class OAuth1 {
     @Test
     public void OAuth1Authentication(){
         given()
-                .auth().oauth("consumerKey","consumerSecret","accessToken","tokenSecret")
+                .auth().oauth("consumerKey","consumerSecret","accessToken","tokenSecret") //We receive all these from Dev
                 .when()
                 .get("url")
                 .then()
