@@ -23,7 +23,7 @@ public class OAuth2 {
     @Test
     public void OAuth1Authentication(){
         given()
-                .auth().oauth2("accessToken")
+                .auth().oauth2("accessToken") //Access Token
                 .when()
                 .get("url")
                 .then()
