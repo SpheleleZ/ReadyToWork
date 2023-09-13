@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MyLearningPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
     private final WaitHelper waitHelper;
 
     @FindBy(xpath = "//div[text()=\"My Learning\"]")

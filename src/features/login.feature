@@ -25,7 +25,6 @@ Feature: Ready To Work:Login Feature
     And user click on logout button
     And close the browser
 
-
   Scenario: Test Ready To Work: Forgot Password with valid email or account
   #Forgot Password with valid email or account
     And user click on forgot password button
